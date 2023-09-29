@@ -1,16 +1,21 @@
 # TaskPulse
 
-A new Flutter project.
+TaskPulse (task mangement system)
 
-## Getting Started
+•	       Developed a Time Management Application:
+Created a user-friendly application to aid in time management.
+•	Task Organization:
+Implemented features for users to add tasks with customizable dates and times.
+•	Task Tracking:
+Enabled users to mark tasks as completed for easy progress monitoring.
+•	Task Updates:
+Implemented the ability for users to update task details and make adjustments as needed.
+•	Task Deletion:
+Provided a seamless process for users to delete tasks when no longer relevant.
+•	Enhanced User Productivity:
+Contributed to helping users optimize their time and enhance their overall productivity.
 
-This project is a starting point for a Flutter application.
+ • Used tools:  flutter , getx , firebase
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
