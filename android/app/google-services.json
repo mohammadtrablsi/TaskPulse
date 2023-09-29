@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848209806771",
+    "project_id": "snapnotes-a57a7",
+    "storage_bucket": "snapnotes-a57a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848209806771:android:422f21403d6e2558c737c6",
+        "android_client_info": {
+          "package_name": "com.example.TaskPulse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848209806771-mkm1gmtrhtm0tfiqe0ges340mtf77q43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcO5ke3yNDdraV9M1s9Xnbp0BVJEtDFME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848209806771-mkm1gmtrhtm0tfiqe0ges340mtf77q43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
