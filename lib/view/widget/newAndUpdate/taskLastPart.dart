@@ -53,7 +53,7 @@ class TaskLastPart extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 7.w, vertical: 0.7.h),
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      // color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(5.sp),
                     ),
                     child: Text(dateText),
@@ -86,11 +86,11 @@ class TaskLastPart extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Icon(icon),
+                        Icon(icon,color: Colors.black,),
                         SizedBox(
                           width: 1.w,
                         ),
-                        Text(dateText),
+                        Text(dateText,style: const TextStyle(color: Colors.black),),
                       ],
                     ),
                   )),

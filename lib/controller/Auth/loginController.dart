@@ -39,6 +39,7 @@ class LoginController extends GetxController {
                   email: email!.text, password: password!.text);
           statusRequest = StatusRequest.success;
           update();
+          myServices.sharedPreferences.setString("uniqueEmail", email!.text);
           Get.offNamed(AppRoute.home);
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {

@@ -35,7 +35,7 @@ class Register extends StatelessWidget {
                   height: 2.sp,
                 ),
                 Text(
-                  "Create an account to SnapeNotes",
+                  "Create an account to TaskPulse",
                   style: TextStyle(fontSize: 12.sp, color: Colors.grey),
                 ),
                 SizedBox(

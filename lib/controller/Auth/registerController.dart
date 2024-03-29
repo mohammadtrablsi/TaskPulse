@@ -57,6 +57,7 @@ class RegisterController extends GetxController {
           );
           statusRequest = StatusRequest.success;
           update();
+          myServices.sharedPreferences.setString("uniqueEmail", email!.text);
           addUser();
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {

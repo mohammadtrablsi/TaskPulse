@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:TaskPulse/view/widget/newAndUpdate/taskLastPart.dart';
 import 'package:TaskPulse/view/widget/newAndUpdate/taskTextField.dart';
 
-import '../../../controller/home/homeController.dart';
+
 import '../../../controller/new/newTaskController.dart';
 import '../../../core/constant/color.dart';
 import '../../widget/newAndUpdate/categoryItem.dart';
@@ -16,7 +16,7 @@ class CreateNewTask extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    NewTaskController controller = Get.put(NewTaskController());
+    Get.put(NewTaskController());
     return GetBuilder<NewTaskController>(builder: (controller){
       return Padding(
         padding:

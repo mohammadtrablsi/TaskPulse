@@ -1,4 +1,6 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,21 +9,22 @@ import 'package:TaskPulse/controller/home/homeController.dart';
 
 
 
-class AppBarPart extends GetView<HomeController> {
-  const AppBarPart({super.key});
+class AppBarPart extends GetView<HomeController> implements PreferredSizeWidget  {
+  const AppBarPart();
+
+   @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
 
 
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.symmetric(vertical: 1.h),
-      child: Stack(
-        alignment: AlignmentDirectional.centerEnd,
-        children: [
-          Row(
+    return AppBar(
+          elevation: 0.4,
+          centerTitle: true, 
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
@@ -37,7 +40,6 @@ class AppBarPart extends GetView<HomeController> {
                   StreamBuilder<QuerySnapshot>(
                     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (snapshot.hasData) {
-                        // Check if there is any document in the snapshot
                         final userData = snapshot.data!.docs.first.data() as Map<String, dynamic>;
                         final userName = userData['name'] as String;
                         return Text(
@@ -49,7 +51,12 @@ class AppBarPart extends GetView<HomeController> {
                         );
 
                       } else {
-                        return const Center();
+                        return  Text(
+                          "loading..",
+                          style: TextStyle(
+                            fontSize: 13.sp,
+                          ),
+                        );;
                       }
                     },
                     stream: controller.usersRef
@@ -60,20 +67,39 @@ class AppBarPart extends GetView<HomeController> {
                 ],
               ),
             ],
+          ), 
+          leading: SizedBox(
+            width: 15.w,
+            child: ThemeSwitcher(
+              clipper: const ThemeSwitcherCircleClipper(),
+              builder: (BuildContext context) {
+                return DayNightSwitcherIcon(
+                  isDarkModeEnabled: controller.toggleModeValue,
+                  onStateChanged: (isDarkModeEnabled) {
+                    controller.changeMode(context);
+                  },
+                );
+              },
+            ),
           ),
-          PopupMenuButton<String>(
-            onSelected: (value) async{
-              controller.logout(value);
-            },
-            itemBuilder: (BuildContext context) => [
-              const PopupMenuItem<String>(
-                value: 'logout',
-                child: Center(child: Text('logout')),
+           actions: [
+            SizedBox(
+              width: 15.w,
+              child: PopupMenuButton<String>(
+                onSelected: (value) async {
+                  controller.logout(value);
+                },
+                itemBuilder: (BuildContext context) => [
+                  const PopupMenuItem<String>(
+                    value: 'logout',
+                    child: Center(child: Text('logout')),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ],
-      ),
-    );
+            ),
+          ],
+          );
   }
+  
+
 }

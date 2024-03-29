@@ -44,7 +44,7 @@ class Login extends StatelessWidget {
                  height: 1.sp,
                ),
                Text(
-                 "Login to your existing account of Snapenotes",
+                 "Login to your existing account of TaskPulse",
                  style: TextStyle(fontSize: 12.sp, color: Colors.grey),
                ),
                SizedBox(

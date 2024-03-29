@@ -1,4 +1,5 @@
 
+import 'package:TaskPulse/view/screen/Focus/focus.dart';
 import 'package:get/get.dart';
 import 'package:TaskPulse/view/screen/Auth/login.dart';
 import 'package:TaskPulse/view/screen/Auth/register.dart';
@@ -20,5 +21,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: "/home", page: () =>   const Home()),
   ////updateTask
   GetPage(name: "/updateTask", page: () =>   const UpdateTask()),
+  //focus
+  GetPage(name: "/focus", page: () =>   const Focus()),
 
 ];

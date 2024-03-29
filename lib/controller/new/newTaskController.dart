@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:TaskPulse/core/services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class NewTaskController extends GetxController {
   TimeOfDay? timePicked;
   CollectionReference Notes = FirebaseFirestore.instance.collection('Notes');
   bool canCreate=false;
-
+  MyServices myServices=Get.find();
 
   @override
   void onInit() {
@@ -56,8 +57,8 @@ class NewTaskController extends GetxController {
           data: ThemeData.light().copyWith(
             primaryColor: AppColor.primaryColor,
             hintColor: AppColor.primaryColor,
-            colorScheme: ColorScheme.light(primary: AppColor.primaryColor),
-            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            colorScheme: const ColorScheme.light(primary: AppColor.primaryColor),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
           child: child!,
         );
@@ -103,6 +104,7 @@ class NewTaskController extends GetxController {
       'isDone':"false",
       'now':DateTime.now(),
       'UserId':FirebaseAuth.instance.currentUser!.uid,
+      'uniqueEmail':myServices.sharedPreferences.getString("uniqueEmail"),
     });
 
           Get.back();

@@ -8,4 +8,6 @@ class AppRoute {
   static const String home = "/home";
 ////updateTask
   static const String updateTask = "/updateTask";
+  //foucs
+  static const String focus = "/focus";
 }

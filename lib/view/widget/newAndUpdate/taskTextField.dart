@@ -37,11 +37,12 @@ class TaskTextField extends StatelessWidget {
           onChanged: onChange,
           keyboardType: TextInputType.emailAddress,
           controller: controller,
-          style: isUpdateTaskPage?TextStyle(color: Colors.grey,fontSize:fontSize,fontWeight: FontWeight.bold):TextStyle(color: Colors.grey), // Set the text color
+          style: isUpdateTaskPage?TextStyle(color: Colors.grey,
+          fontSize:fontSize,fontWeight: FontWeight.bold):TextStyle(color: Colors.grey), // Set the text color
           decoration: InputDecoration(
               label: isUpdateTaskPage?null: Text(text,style: TextStyle(fontSize: LabelSize),),
               filled: true, // Set filled to true
-              fillColor: isUpdateTaskPage?const Color(0xFFEFEFEF):Colors.grey[200],
+              // fillColor: isUpdateTaskPage?const Color(0xFFEFEFEF):Colors.grey[200],
               border: InputBorder.none,
               floatingLabelBehavior: floatingLabelBehavior// Set the background color
             // focusedBorder: OutlineInputBorder(

@@ -44,31 +44,24 @@ dependencies:
   firebase_messaging: ^14.6.7
   firebase_auth: ^4.9.0
   google_sign_in: ^6.1.5
-
-
-
-
-
-
+  device_preview: ^1.1.0
+  rive:
+  numberpicker: ^2.1.2
+  alarm: ^3.0.12
+  animated_theme_switcher: ^2.0.10
+  shared_preferences: ^2.2.2
+  day_night_switcher: ^0.2.0+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
-  flutter_lints: ^2.0.0
-
-flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/image/logo.png"
-  min_sdk_android: 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -85,7 +78,8 @@ flutter:
   assets:
     - assets/image/
     - assets/lottie/
-
+    - assets/rive/
+    - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

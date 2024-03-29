@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
+import '../../core/constant/routes.dart';
 
 class UpdateTaskController extends GetxController {
   CollectionReference Notes = FirebaseFirestore.instance.collection('Notes');
@@ -27,7 +28,6 @@ class UpdateTaskController extends GetxController {
     formstate = GlobalKey<FormState>();
     titleController?.text = Get.arguments[0]['title'];
     descriptionController?.text = Get.arguments[0]['description'];
-    // categoryId=Get.arguments[0]['categoryId'];
     initDate = Get.arguments[0]['date'];
     initTime = Get.arguments[0]['time'];
     categoryId = int.parse(Get.arguments[0]['categoryId']);
@@ -61,8 +61,8 @@ class UpdateTaskController extends GetxController {
           data: ThemeData.light().copyWith(
             primaryColor: AppColor.primaryColor, // Header color
             hintColor: AppColor.primaryColor, // Selection color
-            colorScheme: ColorScheme.light(primary: AppColor.primaryColor),
-            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+            colorScheme: const ColorScheme.light(primary: AppColor.primaryColor),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
           child: child!,
         );
@@ -109,10 +109,17 @@ class UpdateTaskController extends GetxController {
         .catchError((error) => print("Failed to add user: $error"));
   }
 
-  void updateTask() async {
+  void updateTask(BuildContext context) async {
     var documentId = snapshot.data!.docs[index].id;
     final DocumentReference<Object?> docRef =
         FirebaseFirestore.instance.collection('Notes').doc(documentId);
+    if(
+    Get.arguments[0]['title']!=titleController!.text||
+        Get.arguments[0]['description']!=descriptionController?.text||
+        picked != null||
+        timePicked!=null||
+        int.parse(Get.arguments[0]['categoryId'])!=categoryId
+    ){
     try {
       await docRef.update({
         'title': titleController!.text,
@@ -124,11 +131,21 @@ class UpdateTaskController extends GetxController {
         'time': timePicked != null
             ? "${timePicked!.hour}:${timePicked!.minute}"
             : "${selectedTime.hour}:${selectedTime.minute}",
+      }).then((value) async { FocusScope.of(context).unfocus();
+      await Future.delayed(const Duration(milliseconds: 500));
+        Get.back();
       });
       print('Document successfully updated');
-      Get.back();
+      // Get.back();
     } catch (error) {
       print('Error updating document: ${error}');
+    }}else{
+      FocusScope.of(context).unfocus();
+      await Future.delayed(const Duration(milliseconds: 500));
+      Get.back();
     }
+  }
+  void navigateToFocusScreen(){
+    Get.toNamed(AppRoute.focus);
   }
 }
